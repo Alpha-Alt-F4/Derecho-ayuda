@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿El Derecho es para vos? · Orientación en Abogacía</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: #0b1a14;
+  --bg-alt: #102420;
+  --panel: #142a24;
+  --navy: #172038;
+  --beige: #e9e0c8;
+  --beige-soft: #f4efe0;
+  --burgundy: #6e1f2b;
+  --red: #93303f;
+  --white: #f7f5ee;
+  --ink: #0a0a0a;
+  --line: rgba(233,224,200,0.16);
+  --radius: 14px;
+  --serif: 'Fraunces', serif;
+  --sans: 'Source Sans 3', sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg); color:var(--beige-soft); font-family:var(--sans);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--serif); color:var(--white); margin:0 0 .4em; font-weight:600;}
+a{color:var(--beige);}
+p{color:#d8d0ba;}
+.container{max-width:1120px; margin:0 auto; padding:0 24px;}
+.eyebrow{font-family:var(--sans); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; color:var(--beige); opacity:.8;}
+section{padding:88px 0; border-bottom:1px solid var(--line);}
+.section-head{max-width:680px; margin-bottom:44px;}
+.section-head p{font-size:1.05rem;}
+.btn{
+  display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:999px;
+  font-family:var(--sans); font-weight:600; font-size:.95rem; cursor:pointer; border:1px solid transparent;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease; text-decoration:none;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--burgundy); color:var(--white); box-shadow:0 8px 24px -8px rgba(110,31,43,.6);}
+.btn-primary:hover{background:var(--red); box-shadow:0 10px 28px -6px rgba(147,48,63,.7);}
+.btn-outline{background:transparent; color:var(--beige-soft); border-color:var(--line);}
+.btn-outline:hover{border-color:var(--beige); background:rgba(233,224,200,.06);}
+.btn-ghost{background:rgba(233,224,200,.08); color:var(--beige-soft);}
+.btn-ghost:hover{background:rgba(233,224,200,.15);}
+.btn:disabled{opacity:.35; cursor:not-allowed;}
+
+/* NAV */
+nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); background:rgba(11,26,20,.86); border-bottom:1px solid var(--line);}
+.nav-row{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+.brand{font-family:var(--serif); font-size:1.15rem; color:var(--white); letter-spacing:.02em; display:flex; align-items:center; gap:8px;}
+.brand-mark{width:26px; height:26px; border:1.5px solid var(--beige); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.75rem; color:var(--beige);}
+.nav-links{display:flex; gap:4px; flex-wrap:wrap;}
+.nav-links button{background:none; border:none; color:#c9c0a8; font-family:var(--sans); font-size:.85rem; padding:8px 12px; border-radius:8px; cursor:pointer;}
+.nav-links button:hover{background:rgba(233,224,200,.08); color:var(--white);}
+.nav-links button.active{color:var(--white); background:rgba(233,224,200,.1);}
+.hamburger{display:none; background:none; border:1px solid var(--line); color:var(--beige); border-radius:8px; padding:8px 12px; font-size:1.1rem;}
+
+/* HERO */
+.hero{padding:100px 0 70px; border-bottom:1px solid var(--line); position:relative; overflow:hidden;}
+.hero::before{content:''; position:absolute; top:-200px; right:-160px; width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle,rgba(110,31,43,.35),transparent 70%);}
+.hero-inner{position:relative; max-width:760px;}
+.hero h1{font-size:clamp(2.3rem,5vw,3.6rem); line-height:1.06; letter-spacing:-.01em;}
+.hero .lede{font-size:1.15rem; color:#d8d0ba; margin:18px 0 32px; max-width:560px;}
+.hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:46px;}
+.stat-row{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; max-width:820px;}
+.stat{border:1px solid var(--line); border-radius:var(--radius); padding:18px 16px; background:rgba(255,255,255,.02);}
+.stat .num{font-family:var(--serif); font-size:1.5rem; color:var(--beige);}
+.stat .lbl{font-size:.78rem; color:#a89d81; margin-top:2px;}
+.disclaimer{margin-top:34px; font-size:.82rem; color:#9c937a; border-left:2px solid var(--burgundy); padding-left:12px; max-width:600px;}
+
+/* CARDS GRID GENERIC */
+.grid{display:grid; gap:18px;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px; transition:border-color .2s, transform .2s;}
+.card:hover{border-color:rgba(233,224,200,.35); transform:translateY(-2px);}
+.tag{display:inline-block; font-size:.7rem; padding:3px 9px; border-radius:999px; border:1px solid var(--line); color:#c9c0a8; margin:2px 4px 0 0;}
+.pill-row{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0;}
+
+/* PROGRESS */
+.progress-wrap{height:6px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; margin-bottom:26px;}
+.progress-bar{height:100%; background:linear-gradient(90deg,var(--burgundy),var(--red)); width:0%; transition:width .35s ease;}
+
+/* QUIZ */
+.quiz-box{max-width:680px; margin:0 auto;}
+.quiz-meta{display:flex; justify-content:space-between; font-size:.8rem; color:#a89d81; margin-bottom:10px;}
+.q-card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:30px;}
+.q-title{font-family:var(--serif); font-size:1.3rem; color:var(--white); margin-bottom:20px;}
+.opt{
+  display:block; width:100%; text-align:left; background:rgba(255,255,255,.02); border:1px solid var(--line);
+  color:var(--beige-soft); padding:14px 16px; border-radius:10px; margin-bottom:10px; cursor:pointer; font-size:.95rem;
+  transition:border-color .15s, background .15s;
+}
+.opt:hover{border-color:var(--beige); background:rgba(233,224,200,.06);}
+.opt.selected{border-color:var(--red); background:rgba(147,48,63,.18);}
+.quiz-nav{display:flex; justify-content:space-between; margin-top:22px;}
+#quiz-intro, #quiz-results{max-width:680px; margin:0 auto; text-align:center;}
+
+/* RESULTS BARS */
+.bar-row{margin-bottom:16px; text-align:left;}
+.bar-row .top{display:flex; justify-content:space-between; font-size:.92rem; margin-bottom:6px;}
+.bar-row .track{height:10px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden;}
+.bar-row .fill{height:100%; border-radius:999px; background:linear-gradient(90deg,var(--navy),var(--burgundy));}
+.profile-detail{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px; margin-top:26px; text-align:left;}
+
+/* EXPLORER */
+.filter-bar{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px;}
+.chip{border:1px solid var(--line); background:transparent; color:#c9c0a8; padding:8px 14px; border-radius:999px; font-size:.82rem; cursor:pointer;}
+.chip.active{background:var(--burgundy); border-color:var(--burgundy); color:var(--white);}
+.search-input{width:100%; max-width:340px; padding:12px 16px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--white); font-family:var(--sans); margin-bottom:22px;}
+.branch-card{cursor:pointer;}
+.branch-card .icon{font-size:1.6rem;}
+.branch-card h3{font-size:1.05rem; margin:8px 0 6px;}
+.branch-card p{font-size:.88rem; margin:0;}
+.meter{display:flex; align-items:center; gap:6px; font-size:.72rem; color:#a89d81; margin-top:4px;}
+.dots span{display:inline-block; width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.15); margin-right:2px;}
+.dots span.on{background:var(--beige);}
+
+/* MODAL */
+.modal-overlay{position:fixed; inset:0; background:rgba(5,10,8,.75); backdrop-filter:blur(3px); display:none; align-items:flex-start; justify-content:center; padding:60px 16px; z-index:100; overflow-y:auto;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--bg-alt); border:1px solid var(--line); border-radius:18px; max-width:640px; width:100%; padding:32px; position:relative;}
+.modal-close{position:absolute; top:18px; right:18px; background:rgba(255,255,255,.06); border:none; color:var(--beige-soft); width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:1rem;}
+.modal .icon-lg{font-size:2.2rem;}
+.modal-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; font-size:.85rem;}
+.modal-grid div b{color:var(--beige); display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px;}
+
+/* JOBS */
+.job-cat{margin-bottom:44px;}
+.job-cat h3{display:flex; align-items:center; gap:10px; font-size:1.15rem; border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:16px;}
+
+/* COMPARE */
+.compare-select{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px;}
+select{background:var(--panel); color:var(--beige-soft); border:1px solid var(--line); padding:10px 14px; border-radius:8px; font-family:var(--sans);}
+.compare-table{width:100%; border-collapse:collapse; font-size:.85rem;}
+.compare-table th,.compare-table td{border:1px solid var(--line); padding:10px 12px; text-align:left;}
+.compare-table th{background:rgba(255,255,255,.03); font-family:var(--serif); font-weight:500;}
+.compare-table td.metric-cell{min-width:120px;}
+.mini-track{height:8px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; width:100px; display:inline-block; vertical-align:middle; margin-right:6px;}
+.mini-fill{height:100%; background:var(--beige);}
+
+/* UNIVERSITIES */
+.uni-card{padding:26px;}
+.uni-card h3{font-size:1.2rem;}
+.uni-meta{display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:.85rem; margin:16px 0;}
+.uni-meta div b{display:block; color:var(--beige); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em;}
+.verify{font-size:.78rem; color:#a89d81; border-top:1px dashed var(--line); padding-top:12px; margin-top:12px;}
+
+/* BUILDER */
+.builder-form{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:640px;}
+.builder-form label{font-size:.82rem; color:#c9c0a8; display:block; margin-bottom:6px;}
+.builder-form select{width:100%;}
+.path{margin-top:34px; display:flex; flex-direction:column; align-items:flex-start; gap:0;}
+.path-step{background:var(--panel); border:1px solid var(--line); padding:12px 18px; border-radius:10px; font-size:.9rem; position:relative;}
+.path-arrow{color:var(--beige); font-size:1.1rem; margin:4px 0 4px 18px;}
+
+/* CASES */
+.case-card{padding:26px;}
+.case-opts{display:grid; gap:8px; margin-top:14px;}
+.case-feedback{margin-top:14px; padding:12px 14px; border-radius:10px; font-size:.88rem; display:none;}
+.case-feedback.show{display:block;}
+.case-feedback.correct{background:rgba(110,31,43,.18); border:1px solid var(--burgundy);}
+.case-feedback.incorrect{background:rgba(23,32,56,.4); border:1px solid var(--navy);}
+
+/* SAN LUIS */
+.sl-list{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
+.sl-list li{border-left:2px solid var(--burgundy); padding-left:14px; font-size:.92rem; color:#d8d0ba;}
+
+/* FINAL MAP */
+.map-card{padding:28px;}
+.map-card h3{display:flex; align-items:center; gap:8px; font-size:1.05rem;}
+.steps-list{counter-reset:step; list-style:none; padding:0; margin:0;}
+.steps-list li{counter-increment:step; position:relative; padding:10px 0 10px 40px; border-bottom:1px solid var(--line); font-size:.92rem;}
+.steps-list li::before{content:counter(step); position:absolute; left:0; top:8px; width:26px; height:26px; border:1px solid var(--beige); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.78rem; color:var(--beige); font-family:var(--serif);}
+
+footer{padding:40px 0; text-align:center; color:#8a8267; font-size:.8rem;}
+
+/* utility */
+.hidden{display:none !important;}
+.center{text-align:center;}
+.small{font-size:.82rem; color:#a89d81;}
+.mt-24{margin-top:24px;}
+.mt-40{margin-top:40px;}
+
+@media(max-width:860px){
+  .grid-3{grid-template-columns:1fr 1fr;}
+  .stat-row{grid-template-columns:1fr 1fr;}
+  .builder-form{grid-template-columns:1fr;}
+  .modal-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .nav-links{display:none; position:absolute; top:100%; left:0; right:0; background:var(--bg); flex-direction:column; padding:10px; border-bottom:1px solid var(--line);}
+  .nav-links.open{display:flex;}
+  .hamburger{display:block;}
+  .grid-3{grid-template-columns:1fr;}
+  .grid-2{grid-template-columns:1fr;}
+  .stat-row{grid-template-columns:1fr 1fr;}
+  section{padding:56px 0;}
+  .compare-table{font-size:.75rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-row">
+    <div class="brand"><span class="brand-mark">§</span> ¿El Derecho es para vos?</div>
+    <button class="hamburger" id="hamburger">☰</button>
+    <div class="nav-links" id="navLinks">
+      <button data-target="inicio">Inicio</button>
+      <button data-target="test">Test</button>
+      <button data-target="ramas">Ramas</button>
+      <button data-target="salidas">Salidas</button>
+      <button data-target="mundo">Argentina/Mundo</button>
+      <button data-target="universidades">Universidades</button>
+      <button data-target="plan">Plan de estudio</button>
+      <button data-target="cursos">Cursos</button>
+      <button data-target="constructor">Construí tu camino</button>
+      <button data-target="comparador">Comparador</button>
+      <button data-target="casos">Casos</button>
+      <button data-target="sanluis">San Luis</button>
+      <button data-target="mapa">Mi mapa</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="container hero-inner">
+    <p class="eyebrow">Orientación vocacional · Abogacía</p>
+    <h1>¿El Derecho es para vos?</h1>
+    <p class="lede">Descubrí qué rama de la Abogacía podría encajar con vos, dónde podrías trabajar y qué camino podrías seguir — pensado para San Luis, Argentina.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" onclick="goTo('test')">Empezar test →</button>
+      <button class="btn btn-outline" onclick="goTo('ramas')">Explorar el Derecho</button>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="num">20</div><div class="lbl">ramas del Derecho</div></div>
+      <div class="stat"><div class="num">18+</div><div class="lbl">salidas profesionales</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">universidades en San Luis</div></div>
+      <div class="stat"><div class="num">∞</div><div class="lbl">caminos posibles</div></div>
+    </div>
+    <p class="disclaimer">El resultado de este sitio es orientativo. No reemplaza una orientación vocacional profesional ni información oficial de universidades y colegios de abogados.</p>
+  </div>
+</header>
+
+<!-- TEST VOCACIONAL -->
+<section id="test">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 1</p>
+      <h2>Test vocacional</h2>
+      <p>20 situaciones para entender cómo pensás, no si "te gusta" el Derecho.</p>
+    </div>
+
+    <div id="quiz-intro">
+      <div class="card">
+        <p>No hay respuestas correctas. Elegí lo que más te representa en cada situación. Al final vas a ver tu perfil jurídico con distintos niveles de afinidad, no un único resultado.</p>
+        <button class="btn btn-primary mt-24" onclick="startQuiz()">Empezar test</button>
+      </div>
+    </div>
+
+    <div class="quiz-box hidden" id="quiz-active">
+      <div class="quiz-meta"><span id="qCounter">Pregunta 1 / 20</span><span id="qCatLabel"></span></div>
+      <div class="progress-wrap"><div class="progress-bar" id="quizProgress"></div></div>
+      <div class="q-card">
+        <div class="q-title" id="qTitle"></div>
+        <div id="qOptions"></div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn btn-ghost" id="qPrev" onclick="prevQ()">← Anterior</button>
+        <button class="btn btn-primary" id="qNext" onclick="nextQ()" disabled>Siguiente →</button>
+      </div>
+    </div>
+
+    <div id="quiz-results" class="hidden">
+      <h3>Tu perfil jurídico</h3>
+      <p class="small">Estos son tus niveles de afinidad con distintas orientaciones dentro del Derecho.</p>
+      <div id="resultBars" class="mt-24"></div>
+      <h3 class="mt-40">Tu TOP 5</h3>
+      <div id="top5" class="mt-24"></div>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:30px;">
+        <button class="btn btn-primary" onclick="goTo('mapa')">Ver mi mapa profesional</button>
+        <button class="btn btn-outline" onclick="goTo('ramas')">Ver mis posibles ramas</button>
+        <button class="btn btn-ghost" onclick="startQuiz()">Repetir test</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RAMAS -->
+<section id="ramas">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 2</p>
+      <h2>Explorá las ramas del Derecho</h2>
+      <p>Cada tarjeta resume qué hace esa rama, dónde se ejerce y qué habilidades pide. Tocá una tarjeta para ver el detalle completo.</p>
+    </div>
+    <input type="text" class="search-input" id="branchSearch" placeholder="Buscar una rama (ej: penal, ambiental, tecnología)...">
+    <div class="filter-bar" id="branchFilters"></div>
+    <div class="grid grid-3" id="branchGrid"></div>
+  </div>
+</section>
+
+<!-- SALIDAS LABORALES -->
+<section id="salidas">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 3</p>
+      <h2>¿De qué puedo trabajar si estudio Abogacía?</h2>
+      <p>Trabajos reales agrupados por ámbito. Ninguno garantiza empleo: son caminos posibles, no promesas.</p>
+    </div>
+    <div id="jobsContainer"></div>
+  </div>
+</section>
+
+<!-- ARGENTINA VS INTERNACIONAL -->
+<section id="mundo">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 4</p>
+      <h2>Argentina vs. internacional</h2>
+      <p>El título de abogada/o argentino te permite construir una carrera profesional en el país. Ejercer como abogada en otro país normalmente requiere cumplir los requisitos de matriculación de ese país (reválida, exámenes, colegiación local, etc.) — esto varía según el país y hay que verificarlo puntualmente.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>🇦🇷 Trabajar en Argentina</h3>
+        <p>Ámbitos típicos:</p>
+        <div class="pill-row">
+          <span class="tag">Estudios jurídicos</span><span class="tag">Poder Judicial</span><span class="tag">Empresas</span>
+          <span class="tag">Organismos públicos</span><span class="tag">Bancos</span><span class="tag">Aseguradoras</span>
+          <span class="tag">Estudios especializados</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🌎 Componente internacional</h3>
+        <p>Trabajos jurídicos con proyección internacional (sin necesariamente vivir afuera):</p>
+        <div class="pill-row">
+          <span class="tag">Multinacionales</span><span class="tag">Contratos internacionales</span><span class="tag">Comercio internacional</span>
+          <span class="tag">Organismos internacionales</span><span class="tag">Compliance</span><span class="tag">Protección de datos</span>
+          <span class="tag">Arbitraje</span><span class="tag">Derechos humanos</span><span class="tag">Investigación</span>
+        </div>
+      </div>
+    </div>
+    <div class="card mt-24 center">
+      <h3>Si querés trabajar internacionalmente</h3>
+      <p style="font-family:var(--serif); font-size:1.15rem; color:var(--white); letter-spacing:.02em;">
+        Abogacía + Inglés + Especialización + Experiencia → mayor movilidad profesional
+      </p>
+      <p class="small">No es un camino automático: depende del país, la especialización y las oportunidades reales que consigas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSIDADES -->
+<section id="universidades">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 5</p>
+      <h2>¿Dónde puedo estudiar Abogacía?</h2>
+      <p>Con foco en San Luis. La información de precios, cupos y fechas cambia todos los años: siempre verificá en la fuente oficial antes de decidir.</p>
+    </div>
+    <div class="filter-bar" id="uniFilters"></div>
+    <div class="grid grid-2" id="uniGrid"></div>
+    <div class="card mt-24">
+      <h3>Otras opciones en el país</h3>
+      <p>Existen otras universidades públicas y privadas en Argentina que dictan Abogacía, algunas con modalidad a distancia o híbrida. Si te interesa estudiar fuera de San Luis o de forma virtual, te conviene buscar directamente en el <a href="https://www.argentina.gob.ar/educacion" target="_blank" rel="noopener">Ministerio de Educación</a> o en el sitio de cada universidad, porque la oferta cambia.</p>
+      <p class="verify">Última revisión de este bloque: verificar en la fuente oficial de cada universidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN DE ESTUDIO -->
+<section id="plan">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 6</p>
+      <h2>¿Qué voy a estudiar durante la carrera?</h2>
+      <p>Esquema general y orientativo por etapas. El plan real depende de cada universidad — para materias exactas, correlatividades y carga horaria, usá el plan oficial de la institución que elijas.</p>
+    </div>
+    <div class="grid grid-3" id="planGrid"></div>
+  </div>
+</section>
+
+<!-- CURSOS -->
+<section id="cursos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 7</p>
+      <h2>¿Qué puedo estudiar además de la carrera?</h2>
+      <p>Habilidades y áreas que complementan la carrera. En vez de nombrar cursos puntuales que pueden dejar de existir o cambiar de precio, te dejamos la categoría y la plataforma oficial para que busques la oferta vigente.</p>
+    </div>
+    <div class="grid grid-3" id="coursesGrid"></div>
+  </div>
+</section>
+
+<!-- CONSTRUCTOR -->
+<section id="constructor">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 8</p>
+      <h2>Construí tu camino</h2>
+      <p>Elegí tus preferencias y armamos una ruta orientativa, paso a paso.</p>
+    </div>
+    <div class="builder-form">
+      <div>
+        <label>1. Rama que te interesa</label>
+        <select id="bRama"></select>
+      </div>
+      <div>
+        <label>2. Lugar de trabajo preferido</label>
+        <select id="bLugar">
+          <option value="tribunales">Tribunales / Poder Judicial</option>
+          <option value="empresa">Empresa</option>
+          <option value="estudio">Estudio jurídico</option>
+          <option value="estado">Organismo del Estado</option>
+          <option value="ong">ONG / organismo internacional</option>
+        </select>
+      </div>
+      <div>
+        <label>3. Modo de trabajo</label>
+        <select id="bModo">
+          <option value="independiente">Ejercicio independiente</option>
+          <option value="relacion">Relación de dependencia</option>
+          <option value="mixto">Ambas, según etapa</option>
+        </select>
+      </div>
+      <div>
+        <label>4. ¿Te interesa proyección internacional?</label>
+        <select id="bInter">
+          <option value="si">Sí</option>
+          <option value="no">No, prefiero enfocarme en Argentina</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-primary mt-24" onclick="buildPath()">Generar mi ruta</button>
+    <div class="path" id="pathOutput"></div>
+  </div>
+</section>
+
+<!-- COMPARADOR -->
+<section id="comparador">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 9</p>
+      <h2>Comparador de ramas</h2>
+      <p>Compará hasta 3 ramas lado a lado.</p>
+    </div>
+    <div class="compare-select">
+      <select id="cmp1"></select>
+      <select id="cmp2"></select>
+      <select id="cmp3"></select>
+      <button class="btn btn-ghost" onclick="renderCompare()">Comparar</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="compare-table" id="compareTable"></table>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS -->
+<section id="casos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 10</p>
+      <h2>Casos para pensar</h2>
+      <p>Situaciones breves para descubrir qué rama del Derecho interviene en cada una.</p>
+    </div>
+    <div class="grid grid-2" id="casesGrid"></div>
+  </div>
+</section>
+
+<!-- SAN LUIS -->
+<section id="sanluis">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección 11</p>
+      <h2>Estudiar y trabajar en San Luis</h2>
+      <p>Un panorama realista de las posibilidades locales — sin prometer empleabilidad.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Dónde estudiar</h3>
+        <ul class="sl-list">
+          <li>Universidad Nacional de San Luis (UNSL) — pública, carrera de Abogacía en la Facultad de Ciencias Económicas, Jurídicas y Sociales.</li>
+          <li>Universidad Católica de Cuyo, Sede San Luis — privada, Facultad de Derecho y Ciencias Sociales.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Posibles ámbitos de práctica y trabajo local</h3>
+        <ul class="sl-list">
+          <li>Poder Judicial de la Provincia de San Luis</li>
+          <li>Estudios jurídicos locales</li>
+          <li>Organismos públicos provinciales y municipales</li>
+          <li>Empresas radicadas en la provincia</li>
+          <li>Consultorios jurídicos gratuitos universitarios (como espacio de práctica)</li>
+          <li>Colegio de Abogados de San Luis (matriculación y vida profesional)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card mt-24">
+      <p><b style="color:var(--white)">Importante:</b> estas son <i>posibles salidas</i>, no una lista de empleos actualmente disponibles. La demanda laboral cambia según el momento, la especialización y la experiencia. Para oportunidades concretas hoy, conviene consultar directamente al Colegio de Abogados de San Luis, al Poder Judicial provincial y a las bolsas de trabajo de cada universidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA FINAL -->
+<section id="mapa">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Sección final</p>
+      <h2>Tu mapa profesional</h2>
+      <p>Un resumen de lo que fuiste descubriendo. Hacé primero el test para verlo completo.</p>
+    </div>
+    <div id="mapContent"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Herramienta de orientación vocacional. Toda la información sobre universidades, planes de estudio, cursos y salidas laborales puede cambiar — verificá siempre en la fuente oficial antes de tomar decisiones. No garantiza empleo ni reemplaza asesoramiento profesional.</p>
+  </div>
+</footer>
+
+<!-- MODAL for branch detail -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBox"></div>
+</div>
+
+<script>
+/* ============ DATA ============ */
+
+const MACRO = [
+  {id:'litigacion', name:'Litigación', icon:'⚔️', desc:'Te atrae analizar conflictos, construir argumentos, hablar frente a otras personas y defender posiciones jurídicas ante un juez o tribunal.'},
+  {id:'penal', name:'Penal / Investigación de delitos', icon:'🔍', desc:'Te interesa investigar hechos, reconstruir lo ocurrido y trabajar con la lógica de la justicia penal.'},
+  {id:'familia_civil', name:'Civil y Familia', icon:'🤝', desc:'Te interesa acompañar personas en conflictos cotidianos: familia, herencias, contratos entre particulares, conciliar posiciones.'},
+  {id:'laboral', name:'Laboral', icon:'👷', desc:'Te interesa la relación entre trabajadores y empleadores, y los derechos que están en juego en el trabajo.'},
+  {id:'empresarial', name:'Empresarial y Comercial', icon:'🏢', desc:'Te atrae el mundo de las empresas: contratos, sociedades, negocios y decisiones con impacto económico.'},
+  {id:'internacional', name:'Internacional', icon:'🌎', desc:'Te interesa lo que pasa más allá de las fronteras: comercio internacional, organismos globales, derechos humanos.'},
+  {id:'tec_ambiente', name:'Tecnología y Ambiente', icon:'💻', desc:'Te atraen los temas emergentes: datos, inteligencia artificial, cuestiones ambientales y su regulación.'},
+  {id:'academia', name:'Investigación y Docencia', icon:'📚', desc:'Te interesa profundizar, escribir, enseñar y pensar el Derecho más que litigarlo día a día.'}
+];
+
+const BRANCHES = [
+  {id:'penal', name:'Derecho Penal', icon:'⚖️', macro:['penal','litigacion'],
+   desc:'Regula los delitos y las penas: qué conductas están prohibidas y qué consecuencias tienen.',
+   problems:'Investiga y juzga hechos que la ley considera delitos.',
+   examples:'Defensa de una persona acusada, representación de una víctima, actuación como fiscal.',
+   materias:'Derecho Penal I y II, Procesal Penal, Criminología.',
+   skills:'Argumentación oral, análisis de pruebas, manejo de la presión.',
+   lugares:'Tribunales, defensorías, fiscalías, estudios penalistas.',
+   independiente:4, empresas:1, internacional:2, personas:4, lectura:4, litigacion:5,
+   tags:['justicia','juicios','personas','estado']},
+  {id:'civil', name:'Derecho Civil', icon:'📜', macro:['familia_civil'],
+   desc:'Regula las relaciones entre personas: contratos, propiedad, obligaciones, sucesiones.',
+   problems:'Resuelve conflictos entre particulares por bienes, contratos y responsabilidades.',
+   examples:'Reclamo por un contrato incumplido, sucesión de una herencia, indemnización por daños.',
+   materias:'Derecho Civil I a V, Obligaciones, Contratos, Sucesiones.',
+   skills:'Redacción, análisis de casos, negociación.',
+   lugares:'Estudios jurídicos, tribunales civiles, asesorías.',
+   independiente:5, empresas:2, internacional:1, personas:4, lectura:4, litigacion:3,
+   tags:['personas','justicia','negociacion']},
+  {id:'familia', name:'Derecho de Familia', icon:'👨‍👩‍👧', macro:['familia_civil'],
+   desc:'Regula vínculos familiares: divorcios, cuidado de hijos, alimentos, adopciones.',
+   problems:'Acompaña conflictos y decisiones dentro de una familia.',
+   examples:'Divorcio, régimen de cuidado personal de hijos, cuota alimentaria, adopción.',
+   materias:'Derecho de Familia, Sucesiones, Mediación.',
+   skills:'Escucha, empatía, negociación, manejo de situaciones sensibles.',
+   lugares:'Estudios especializados, tribunales de familia, centros de mediación.',
+   independiente:5, empresas:1, internacional:1, personas:5, lectura:3, litigacion:3,
+   tags:['personas','negociacion','justicia']},
+  {id:'laboral', name:'Derecho Laboral', icon:'👷', macro:['laboral'],
+   desc:'Regula la relación entre trabajadores y empleadores.',
+   problems:'Resuelve conflictos por despidos, condiciones de trabajo, accidentes laborales.',
+   examples:'Reclamo por despido injustificado, asesoría a una empresa sobre contratación, negociación colectiva.',
+   materias:'Derecho del Trabajo, Seguridad Social, Procesal Laboral.',
+   skills:'Negociación, análisis normativo, argumentación.',
+   lugares:'Estudios laboralistas, sindicatos, áreas de RRHH de empresas, tribunales.',
+   independiente:4, empresas:4, internacional:1, personas:4, lectura:3, litigacion:3,
+   tags:['personas','empresas','negociacion','justicia']},
+  {id:'empresarial', name:'Derecho Empresarial', icon:'🏢', macro:['empresarial'],
+   desc:'Acompaña a empresas en sus decisiones legales cotidianas.',
+   problems:'Da soporte jurídico a la gestión y crecimiento de una empresa.',
+   examples:'Revisar un contrato, asesorar sobre una fusión, resolver un conflicto societario.',
+   materias:'Derecho Comercial, Societario, Contratos, Concursal.',
+   skills:'Análisis de riesgo, redacción de contratos, visión de negocio.',
+   lugares:'Estudios corporativos, departamentos legales de empresas.',
+   independiente:3, empresas:5, internacional:3, personas:2, lectura:4, litigacion:1,
+   tags:['empresas','dinero','negociacion']},
+  {id:'comercial', name:'Derecho Comercial', icon:'📈', macro:['empresarial'],
+   desc:'Regula los actos de comercio, sociedades y títulos valores.',
+   problems:'Ordena cómo se hacen negocios entre empresas y personas.',
+   examples:'Constitución de una sociedad, cobro de un cheque, quiebra de una empresa.',
+   materias:'Derecho Comercial, Títulos de Crédito, Concursos y Quiebras.',
+   skills:'Análisis normativo, redacción, pensamiento estratégico.',
+   lugares:'Estudios jurídicos, bancos, empresas.',
+   independiente:4, empresas:5, internacional:3, personas:2, lectura:4, litigacion:2,
+   tags:['empresas','dinero']},
+  {id:'constitucional', name:'Derecho Constitucional', icon:'🏛️', macro:['academia','litigacion'],
+   desc:'Estudia la organización del Estado y los derechos fundamentales.',
+   problems:'Analiza si una ley o acto respeta la Constitución.',
+   examples:'Amparo por un derecho vulnerado, análisis de una reforma legal, litigio de interés público.',
+   materias:'Derecho Constitucional, Derechos Humanos, Teoría del Estado.',
+   skills:'Argumentación, escritura, pensamiento crítico.',
+   lugares:'Tribunales superiores, organismos públicos, ONGs, academia.',
+   independiente:2, empresas:1, internacional:3, personas:3, lectura:5, litigacion:3,
+   tags:['estado','justicia','politica','investigacion']},
+  {id:'administrativo', name:'Derecho Administrativo', icon:'🏢', macro:['empresarial','academia'],
+   desc:'Regula la actuación del Estado y su relación con las personas.',
+   problems:'Resuelve conflictos entre ciudadanos/empresas y la administración pública.',
+   examples:'Impugnar una licitación, reclamo contra un municipio, asesoría a un organismo público.',
+   materias:'Derecho Administrativo, Procesal Administrativo, Derecho Público.',
+   skills:'Análisis normativo, redacción de escritos, paciencia con procesos formales.',
+   lugares:'Organismos del Estado, estudios especializados, municipios.',
+   independiente:3, empresas:2, internacional:1, personas:2, lectura:4, litigacion:3,
+   tags:['estado','justicia','politica']},
+  {id:'tributario', name:'Derecho Tributario', icon:'💰', macro:['empresarial'],
+   desc:'Regula los impuestos y la relación entre el Estado y los contribuyentes.',
+   problems:'Ordena cómo se pagan y se discuten los impuestos.',
+   examples:'Asesorar a una empresa sobre impuestos, defender ante un reclamo de AFIP/ARCA, planificación fiscal.',
+   materias:'Derecho Tributario, Finanzas Públicas, Contabilidad básica.',
+   skills:'Pensamiento numérico, análisis normativo, precisión.',
+   lugares:'Estudios contables-jurídicos, empresas, organismos fiscales.',
+   independiente:3, empresas:5, internacional:2, personas:1, lectura:4, litigacion:2,
+   tags:['dinero','empresas','estado']},
+  {id:'internacional', name:'Derecho Internacional', icon:'🌎', macro:['internacional'],
+   desc:'Regula relaciones entre países, organismos y actores globales.',
+   problems:'Ordena el comercio, los conflictos y la cooperación entre países.',
+   examples:'Asesorar sobre un contrato de exportación, trabajar en un organismo internacional, arbitraje comercial.',
+   materias:'Derecho Internacional Público y Privado, Comercio Internacional.',
+   skills:'Idiomas (especialmente inglés), análisis comparado, redacción.',
+   lugares:'Organismos internacionales, empresas multinacionales, estudios con práctica internacional.',
+   independiente:2, empresas:4, internacional:5, personas:2, lectura:5, litigacion:2,
+   tags:['internacional','empresas','politica']},
+  {id:'ambiental', name:'Derecho Ambiental', icon:'🌱', macro:['tec_ambiente'],
+   desc:'Regula el uso y la protección de los recursos naturales.',
+   problems:'Busca equilibrar actividad económica y cuidado del ambiente.',
+   examples:'Evaluación de impacto ambiental de un proyecto, reclamo por contaminación, asesoría a un organismo ambiental.',
+   materias:'Derecho Ambiental, Recursos Naturales, Derecho Administrativo.',
+   skills:'Interés interdisciplinario, análisis técnico-normativo, redacción de informes.',
+   lugares:'Organismos ambientales, ONGs, empresas, estudios especializados.',
+   independiente:2, empresas:3, internacional:3, personas:2, lectura:4, litigacion:2,
+   tags:['ambiente','estado','investigacion']},
+  {id:'tecnologico', name:'Derecho Tecnológico', icon:'💻', macro:['tec_ambiente'],
+   desc:'Regula tecnología, plataformas digitales e inteligencia artificial.',
+   problems:'Analiza cómo se aplican las normas a productos y servicios digitales.',
+   examples:'Asesorar a una startup, redactar términos y condiciones, analizar el uso de IA en una empresa.',
+   materias:'Derecho Informático, Propiedad Intelectual, Protección de Datos.',
+   skills:'Curiosidad tecnológica, redacción precisa, actualización constante.',
+   lugares:'Startups, empresas tech, estudios especializados.',
+   independiente:3, empresas:4, internacional:3, personas:2, lectura:4, litigacion:1,
+   tags:['tecnologia','empresas','investigacion']},
+  {id:'propiedad_intelectual', name:'Propiedad Intelectual', icon:'💡', macro:['tec_ambiente','empresarial'],
+   desc:'Protege marcas, patentes, derechos de autor y creaciones.',
+   problems:'Ordena quién es dueño de una creación y cómo se protege.',
+   examples:'Registrar una marca, defender un derecho de autor, asesorar sobre una patente.',
+   materias:'Propiedad Intelectual, Derecho Comercial, Derecho Tecnológico.',
+   skills:'Atención al detalle, redacción técnica, análisis creativo.',
+   lugares:'Estudios especializados, empresas creativas y tecnológicas.',
+   independiente:3, empresas:4, internacional:3, personas:1, lectura:4, litigacion:1,
+   tags:['empresas','tecnologia']},
+  {id:'bancario', name:'Derecho Bancario y Financiero', icon:'🏦', macro:['empresarial'],
+   desc:'Regula bancos, créditos y operaciones financieras.',
+   problems:'Ordena cómo operan los bancos y se otorgan créditos.',
+   examples:'Asesorar sobre un préstamo, revisar contratos bancarios, litigar por una cláusula abusiva.',
+   materias:'Derecho Bancario, Contratos, Derecho del Consumidor.',
+   skills:'Análisis numérico, redacción contractual.',
+   lugares:'Bancos, estudios financieros, entidades reguladoras.',
+   independiente:2, empresas:5, internacional:3, personas:2, lectura:4, litigacion:1,
+   tags:['dinero','empresas']},
+  {id:'consumidor', name:'Derecho del Consumidor', icon:'🛒', macro:['familia_civil'],
+   desc:'Protege a quienes compran productos o contratan servicios.',
+   problems:'Equilibra la relación entre empresas y consumidores.',
+   examples:'Reclamo por un producto defectuoso, denuncia por publicidad engañosa, asesoría a una empresa.',
+   materias:'Derecho del Consumidor, Derecho Civil, Derecho Comercial.',
+   skills:'Redacción de reclamos, negociación, comunicación clara.',
+   lugares:'Defensorías del consumidor, estudios jurídicos, empresas.',
+   independiente:4, empresas:3, internacional:1, personas:4, lectura:2, litigacion:2,
+   tags:['personas','justicia','negociacion']},
+  {id:'inmobiliario', name:'Derecho Inmobiliario', icon:'🏠', macro:['familia_civil','empresarial'],
+   desc:'Regula la compra, venta y uso de propiedades.',
+   problems:'Ordena operaciones y conflictos sobre inmuebles.',
+   examples:'Redactar un boleto de compraventa, asesorar en un alquiler, resolver un conflicto de límites.',
+   materias:'Derecho Civil, Registral, Contratos.',
+   skills:'Redacción contractual, atención al detalle.',
+   lugares:'Escribanías, inmobiliarias, estudios jurídicos.',
+   independiente:4, empresas:3, internacional:1, personas:3, lectura:3, litigacion:1,
+   tags:['personas','empresas','dinero']},
+  {id:'electoral', name:'Derecho Electoral', icon:'🗳️', macro:['academia'],
+   desc:'Regula los procesos electorales y partidos políticos.',
+   problems:'Ordena cómo se organizan y controlan las elecciones.',
+   examples:'Asesorar a un partido político, litigar por una impugnación electoral, trabajar en la justicia electoral.',
+   materias:'Derecho Constitucional, Derecho Electoral, Ciencia Política.',
+   skills:'Análisis normativo, interés por la política, redacción.',
+   lugares:'Justicia electoral, partidos políticos, organismos públicos.',
+   independiente:1, empresas:1, internacional:1, personas:2, lectura:4, litigacion:2,
+   tags:['politica','estado','justicia']},
+  {id:'ddhh', name:'Derechos Humanos', icon:'✊', macro:['internacional','academia'],
+   desc:'Protege los derechos fundamentales de las personas frente al Estado y otros actores.',
+   problems:'Defiende derechos vulnerados y promueve cambios normativos.',
+   examples:'Litigio estratégico, trabajo en un organismo internacional, investigación sobre violaciones de derechos.',
+   materias:'Derechos Humanos, Derecho Internacional, Derecho Constitucional.',
+   skills:'Escritura, argumentación, compromiso social, idiomas.',
+   lugares:'ONGs, organismos internacionales, universidades, Estado.',
+   independiente:2, empresas:1, internacional:5, personas:5, lectura:5, litigacion:3,
+   tags:['justicia','internacional','politica','investigacion']},
+  {id:'mediacion', name:'Mediación', icon:'🤝', macro:['familia_civil'],
+   desc:'Ayuda a las partes de un conflicto a llegar a un acuerdo sin llegar a juicio.',
+   problems:'Facilita el diálogo para resolver conflictos de forma colaborativa.',
+   examples:'Mediar un conflicto familiar, vecinal o comercial.',
+   materias:'Mediación, Resolución de Conflictos, Derecho de Familia.',
+   skills:'Escucha activa, neutralidad, comunicación, paciencia.',
+   lugares:'Centros de mediación, estudios, Poder Judicial.',
+   independiente:5, empresas:2, internacional:1, personas:5, lectura:2, litigacion:0,
+   tags:['personas','negociacion','justicia']},
+  {id:'litigacion', name:'Litigación', icon:'⚔️', macro:['litigacion'],
+   desc:'Es la práctica de defender posiciones jurídicas ante un juez o tribunal, en cualquier fuero.',
+   problems:'Construye y expone argumentos para ganar un caso.',
+   examples:'Alegatos orales, audiencias, juicios civiles, penales o laborales.',
+   materias:'Procesal Civil, Procesal Penal, Oratoria, Práctica Profesional.',
+   skills:'Oratoria, pensamiento rápido, argumentación, manejo del estrés.',
+   lugares:'Tribunales de cualquier fuero.',
+   independiente:5, empresas:2, internacional:1, personas:4, lectura:3, litigacion:5,
+   tags:['juicios','justicia','personas']}
+];
+
+const JOBS = [
+  {cat:'estado', catLabel:'🏛️ Estado', items:[
+    {name:'Funcionaria/o judicial', branch:'Derecho Procesal / general', desc:'Trabaja dentro del Poder Judicial, en distintas dependencias, dando soporte a juzgados y tribunales. Puede ejercer en relación de dependencia y crecer en la carrera judicial.'},
+    {name:'Asesora legal en un organismo público', branch:'Derecho Administrativo', desc:'Analiza normativa, redacta dictámenes y asesora a un municipio, ministerio o ente público. Relación de dependencia.'},
+  ]},
+  {cat:'justicia', catLabel:'⚖️ Justicia', items:[
+    {name:'Fiscal', branch:'Derecho Penal', desc:'Investiga delitos y representa la acusación en un proceso penal. Carrera dentro del Ministerio Público, relación de dependencia con estabilidad.'},
+    {name:'Defensora/Defensor', branch:'Derecho Penal', desc:'Representa a personas acusadas, garantizando su derecho de defensa. Dentro del Ministerio Público de la Defensa.'},
+    {name:'Abogada penalista', branch:'Derecho Penal', desc:'Ejerce en forma independiente defendiendo o representando a víctimas en causas penales.'},
+  ]},
+  {cat:'empresas', catLabel:'🏢 Empresas', items:[
+    {name:'Asesora jurídica de empresa (in-house)', branch:'Derecho Empresarial', desc:'Forma parte del equipo legal interno de una empresa, en relación de dependencia, resolviendo temas cotidianos del negocio.'},
+    {name:'Abogada de compliance', branch:'Derecho Empresarial / Tecnológico', desc:'Vela porque la empresa cumpla normativas internas y externas (anticorrupción, protección de datos, etc.).'},
+    {name:'Especialista en contratos', branch:'Derecho Comercial', desc:'Redacta, revisa y negocia contratos comerciales para una empresa o como consultora externa.'},
+    {name:'Abogada laboralista (lado empresa)', branch:'Derecho Laboral', desc:'Asesora a empresas sobre contratación, despidos y relaciones laborales.'},
+  ]},
+  {cat:'independiente', catLabel:'👨‍⚖️ Ejercicio independiente', items:[
+    {name:'Abogada de familia', branch:'Derecho de Familia', desc:'Estudio propio o compartido, acompañando divorcios, cuidado de hijos, sucesiones. Trabajo independiente.'},
+    {name:'Abogada laboralista (lado trabajador)', branch:'Derecho Laboral', desc:'Representa a trabajadores en reclamos laborales, generalmente de forma independiente.'},
+    {name:'Mediadora', branch:'Mediación', desc:'Facilita acuerdos entre partes en conflicto, con matrícula de mediador. Puede combinarse con otras áreas.'},
+  ]},
+  {cat:'internacional', catLabel:'🌎 Internacional', items:[
+    {name:'Especialista en contratos internacionales', branch:'Derecho Internacional', desc:'Asesora a empresas que operan con el exterior. Requiere buen manejo de inglés y a veces de otro idioma.'},
+    {name:'Especialista en protección de datos', branch:'Derecho Tecnológico', desc:'Asesora sobre cumplimiento normativo de datos personales, un área con proyección internacional (ej. estándares como el RGPD europeo).'},
+    {name:'Trabajo en organismos internacionales', branch:'Derechos Humanos / Internacional', desc:'Requiere formación de posgrado, idiomas y experiencia; suele ser un camino de mediano-largo plazo.'},
+  ]},
+  {cat:'academia', catLabel:'🎓 Academia', items:[
+    {name:'Docente universitaria', branch:'Cualquier rama', desc:'Enseña en la universidad, generalmente combinado con el ejercicio profesional o la investigación.'},
+    {name:'Investigadora', branch:'Cualquier rama', desc:'Profundiza temas jurídicos en un centro de investigación o universidad, produciendo publicaciones académicas.'},
+  ]},
+  {cat:'conflictos', catLabel:'🤝 Resolución de conflictos', items:[
+    {name:'Mediadora', branch:'Mediación', desc:'Ayuda a las partes a llegar a un acuerdo sin llegar a juicio.'},
+    {name:'Árbitro', branch:'Derecho Comercial / Internacional', desc:'Resuelve disputas comerciales fuera del sistema judicial tradicional, en base a un acuerdo entre las partes.'},
+  ]},
+  {cat:'tecnologia', catLabel:'💻 Tecnología', items:[
+    {name:'Especialista en propiedad intelectual', branch:'Propiedad Intelectual', desc:'Protege marcas, patentes y creaciones de empresas y personas creativas.'},
+    {name:'Legal en una startup', branch:'Derecho Tecnológico', desc:'Asesora a equipos de tecnología sobre términos de uso, datos y estructura societaria.'},
+  ]},
+  {cat:'ambiente', catLabel:'🌱 Ambiente', items:[
+    {name:'Abogada ambiental', branch:'Derecho Ambiental', desc:'Asesora sobre impacto ambiental, cumplimiento normativo y conflictos ambientales, en el Estado, ONGs o empresas.'},
+  ]},
+];
+
+const COURSES = [
+  {area:'🇬🇧 Inglés jurídico', platform:'British Council / plataformas de idiomas', link:'https://www.britishcouncil.org.ar/', why:'El inglés jurídico es clave para cualquier trabajo con proyección internacional.'},
+  {area:'💻 Tecnología y IA aplicada al Derecho', platform:'Coursera', link:'https://www.coursera.org/', why:'Cada vez más estudios y empresas usan herramientas digitales; entender su lógica da ventaja.'},
+  {area:'📊 Excel y herramientas de gestión', platform:'Microsoft Learn', link:'https://learn.microsoft.com/es-es/training/', why:'Útil para áreas empresariales, tributarias y de gestión de estudios jurídicos.'},
+  {area:'🧠 Argumentación y oratoria', platform:'edX', link:'https://www.edx.org/', why:'Esencial para litigación, docencia y cualquier rol que implique defender posiciones.'},
+  {area:'✍️ Escritura jurídica', platform:'Universidades y plataformas de escritura académica', link:'https://www.coursera.org/', why:'Redactar con claridad es una habilidad que se entrena y diferencia a un/a profesional.'},
+  {area:'🤝 Negociación', platform:'Coursera / edX', link:'https://www.coursera.org/', why:'Sirve en mediación, laboral, familia, empresarial: casi cualquier rama la usa.'},
+  {area:'🌎 Derecho Internacional', platform:'Cursos de universidades extranjeras en Coursera/edX', link:'https://www.edx.org/', why:'Buena base si te interesa trabajar con temas internacionales o de derechos humanos.'},
+  {area:'💰 Finanzas para no financistas', platform:'Coursera', link:'https://www.coursera.org/', why:'Ayuda mucho en tributario, empresarial, bancario y concursal.'},
+  {area:'🔐 Protección de datos personales', platform:'Cursos oficiales de organismos de protección de datos', link:'https://www.argentina.gob.ar/aaip', why:'Un área en crecimiento constante ligada a tecnología y empresas.'},
+];
+
+const PLAN = [
+  {stage:'Primeros años', items:['Introducción al Derecho','Derecho Constitucional','Derecho Civil (Parte General)','Derecho Penal I','Historia y Teoría del Estado']},
+  {stage:'Años intermedios', items:['Contratos y Obligaciones','Derecho Comercial','Derecho Laboral','Derecho Administrativo','Derecho Procesal Civil y Penal']},
+  {stage:'Últimos años', items:['Materias de especialización','Práctica Profesional / Consultorio Jurídico','Derecho Internacional','Trabajo Final de Estudios','Electivas']},
+];
+
+const UNIS = [
+  {name:'Universidad Nacional de San Luis (UNSL)', tipo:'pública', ubicacion:'San Luis Capital', modalidad:'Presencial',
+   duracion:'5 años', titulo:'Abogado / Abogada', facultad:'Facultad de Ciencias Económicas, Jurídicas y Sociales (FCEJS)',
+   link:'https://carreras.unsl.edu.ar/carreras/abogacia', linkPlan:'https://www.fcejs.unsl.edu.ar/index.php/abogacia-plan/',
+   filtros:['san-luis','publica'], verificado:'Duración y título verificados en la web oficial de la UNSL en agosto de 2026.'},
+  {name:'Universidad Católica de Cuyo — Sede San Luis', tipo:'privada', ubicacion:'San Luis Capital', modalidad:'Presencial',
+   duracion:'Verificar en la fuente oficial', titulo:'Abogado / Abogada', facultad:'Facultad de Derecho y Ciencias Sociales',
+   link:'https://derecho.uccuyosl.edu.ar/', linkPlan:'https://derecho.uccuyosl.edu.ar/',
+   filtros:['san-luis','privada'], verificado:'Existencia de la carrera y facultad verificada en la web oficial en agosto de 2026. Duración, aranceles y requisitos de ingreso: verificar en la fuente oficial, cambian todos los años.'},
+];
+
+const CASES = [
+  {prompt:'Una empresa recibió una demanda de un ex empleado por despido sin causa. ¿Qué rama interviene principalmente?',
+   options:['Derecho Laboral','Derecho Comercial','Derecho Penal','Derecho Administrativo'], correct:0,
+   explain:'Corresponde principalmente al Derecho Laboral, que regula la relación entre trabajadores y empleadores.'},
+  {prompt:'Dos hermanos no se ponen de acuerdo sobre cómo repartir la herencia de sus padres. ¿Qué rama interviene?',
+   options:['Derecho Penal','Derecho Civil (sucesiones)','Derecho Laboral','Derecho Tributario'], correct:1,
+   explain:'Es un tema de Derecho Civil, específicamente del área de Sucesiones.'},
+  {prompt:'Una startup quiere proteger el nombre de su nueva app antes de lanzarla. ¿Qué rama interviene?',
+   options:['Propiedad Intelectual','Derecho Ambiental','Derecho de Familia','Derecho Electoral'], correct:0,
+   explain:'Registrar una marca corresponde al área de Propiedad Intelectual.'},
+  {prompt:'Se descubre que una fábrica está contaminando un río cercano. ¿Qué rama interviene?',
+   options:['Derecho Bancario','Derecho Ambiental','Derecho Inmobiliario','Mediación'], correct:1,
+   explain:'La contaminación de recursos naturales corresponde al Derecho Ambiental.'},
+  {prompt:'Una persona es detenida y acusada de haber cometido un robo. ¿Qué rama interviene?',
+   options:['Derecho Civil','Derecho Comercial','Derecho Penal','Derecho Tributario'], correct:2,
+   explain:'La investigación y el juicio por un delito corresponden al Derecho Penal.'},
+  {prompt:'Una empresa argentina firma un contrato de exportación con un comprador en Brasil. ¿Qué rama interviene?',
+   options:['Derecho Internacional', 'Derecho de Familia', 'Derecho Electoral', 'Mediación'], correct:0,
+   explain:'Los contratos entre partes de distintos países corresponden al Derecho Internacional (privado, en este caso).'},
+  {prompt:'Una pareja decide separarse y tiene que definir con quién vivirán sus hijos. ¿Qué rama interviene?',
+   options:['Derecho de Familia','Derecho Penal','Derecho Tributario','Derecho Bancario'], correct:0,
+   explain:'Corresponde al Derecho de Familia.'},
+  {prompt:'Un municipio no responde a un reclamo formal de un vecino sobre un permiso de construcción. ¿Qué rama interviene?',
+   options:['Derecho Administrativo','Derecho Comercial','Propiedad Intelectual','Derecho Laboral'], correct:0,
+   explain:'La relación entre una persona y el Estado (municipio) corresponde al Derecho Administrativo.'},
+  {prompt:'Una empresa de tecnología quiere saber si puede usar datos de sus usuarios para entrenar una IA. ¿Qué rama interviene?',
+   options:['Derecho Tecnológico / Protección de Datos','Derecho de Familia','Derecho Electoral','Mediación'], correct:0,
+   explain:'Corresponde al Derecho Tecnológico, en particular a la protección de datos personales.'},
+  {prompt:'Dos vecinos discuten por el límite entre sus terrenos y quieren evitar ir a juicio. ¿Qué camino podrían elegir primero?',
+   options:['Mediación','Derecho Penal','Derecho Tributario','Derecho Electoral'], correct:0,
+   explain:'La Mediación busca resolver el conflicto por acuerdo antes de llegar a juicio.'}
+];
+
+/* ============ QUIZ QUESTIONS ============ */
+/* each option: {text, pts:{macroId:points}} */
+const QUESTIONS = [
+ {cat:'Resolución de conflictos', q:'Se presenta un conflicto entre dos personas. ¿Qué te interesa más?',
+  opts:[
+   {t:'Descubrir quién tiene razón jurídicamente.', p:{litigacion:2}},
+   {t:'Buscar una solución donde ambos puedan llegar a un acuerdo.', p:{familia_civil:2}},
+   {t:'Investigar si hubo un delito.', p:{penal:2}},
+   {t:'Analizar qué consecuencias tendría para una empresa.', p:{empresarial:2}},
+   {t:'Entender qué derechos fueron vulnerados.', p:{academia:1, litigacion:1}}]},
+ {cat:'Intereses', q:'¿Cuál de estas actividades te resultaría más interesante?',
+  opts:[
+   {t:'Defender a una persona en un juicio.', p:{litigacion:2}},
+   {t:'Analizar un contrato de una empresa.', p:{empresarial:2}},
+   {t:'Investigar un caso criminal.', p:{penal:2}},
+   {t:'Ayudar a resolver un conflicto familiar.', p:{familia_civil:2}},
+   {t:'Analizar una cuestión relacionada con otro país.', p:{internacional:2}}]},
+ {cat:'Lectura', q:'¿Cómo te llevás con leer textos largos y complejos?',
+  opts:[
+   {t:'Me gusta, puedo pasar horas analizando un texto en detalle.', p:{academia:2}},
+   {t:'Puedo hacerlo si tiene un objetivo práctico claro.', p:{empresarial:1, laboral:1}},
+   {t:'Prefiero leer lo justo y necesario.', p:{litigacion:1}},
+   {t:'Prefiero hablar y debatir antes que leer.', p:{litigacion:2}}]},
+ {cat:'Escritura', q:'Cuando escribís algo importante, ¿qué priorizás?',
+  opts:[
+   {t:'Que sea preciso y técnicamente correcto.', p:{academia:2}},
+   {t:'Que sea persuasivo y convincente.', p:{litigacion:2}},
+   {t:'Que sea claro para cualquier persona.', p:{familia_civil:1}},
+   {t:'Que resuelva un problema concreto rápido.', p:{empresarial:1}}]},
+ {cat:'Argumentación', q:'En una discusión de ideas, ¿qué rol solés tomar?',
+  opts:[
+   {t:'Defiendo mi postura con firmeza.', p:{litigacion:2}},
+   {t:'Busco puntos en común entre las partes.', p:{familia_civil:2}},
+   {t:'Analizo los hechos antes de opinar.', p:{penal:2}},
+   {t:'Prefiero no discutir, observar y sacar conclusiones.', p:{academia:1}}]},
+ {cat:'Negociación', q:'¿Qué tan cómoda te sentís negociando algo (un precio, un acuerdo)?',
+  opts:[
+   {t:'Muy cómoda, me gusta negociar.', p:{empresarial:2, laboral:1}},
+   {t:'Cómoda si es para ayudar a otros a llegar a un acuerdo.', p:{familia_civil:2}},
+   {t:'Prefiero que las reglas ya estén claras de antemano.', p:{academia:1}},
+   {t:'Prefiero litigar antes que negociar.', p:{litigacion:2}}]},
+ {cat:'Investigación', q:'Te dan un caso confuso con muchos datos sueltos. ¿Qué hacés primero?',
+  opts:[
+   {t:'Ordeno los hechos como si armara un rompecabezas.', p:{penal:2}},
+   {t:'Busco antecedentes y normativa aplicable.', p:{academia:2}},
+   {t:'Pienso en el impacto económico del caso.', p:{empresarial:1}},
+   {t:'Pienso en cómo se sienten las personas involucradas.', p:{familia_civil:2}}]},
+ {cat:'Empresas', q:'¿Qué opinás de trabajar cerca del mundo empresarial?',
+  opts:[
+   {t:'Me atrae mucho, me interesan los negocios.', p:{empresarial:2}},
+   {t:'Me es indiferente.', p:{}},
+   {t:'Prefiero trabajar con personas particulares, no empresas.', p:{familia_civil:1}},
+   {t:'Prefiero el ámbito público antes que el privado.', p:{}}]},
+ {cat:'Ayudar personas', q:'¿Qué te resulta más gratificante?',
+  opts:[
+   {t:'Ayudar directamente a una persona con un problema concreto.', p:{familia_civil:2}},
+   {t:'Resolver un problema técnico complejo, aunque no trate con personas.', p:{empresarial:1, academia:1}},
+   {t:'Defender causas que impactan a muchas personas a la vez.', p:{internacional:2}},
+   {t:'Hacer justicia frente a un delito.', p:{penal:2}}]},
+ {cat:'Política', q:'¿Qué tanto te interesan los temas de organización del Estado y política pública?',
+  opts:[
+   {t:'Mucho, me gusta seguir la actualidad política.', p:{academia:2}},
+   {t:'Algo, pero no es mi foco principal.', p:{}},
+   {t:'Poco, prefiero temas más técnicos o privados.', p:{empresarial:1}},
+   {t:'Nada, prefiero mantenerme alejada de la política.', p:{}}]},
+ {cat:'Tecnología', q:'¿Cómo te llevás con la tecnología y las herramientas digitales?',
+  opts:[
+   {t:'Me encanta, me gustaría trabajar con temas tecnológicos.', p:{tec_ambiente:2}},
+   {t:'La uso bien, pero no es mi pasión.', p:{}},
+   {t:'Prefiero temas más tradicionales.', p:{familia_civil:1}},
+   {t:'Me interesa cómo se regula, más que la tecnología en sí.', p:{tec_ambiente:2}}]},
+ {cat:'Ambiente', q:'¿Qué tan importante te parece el cuidado del ambiente en tu futuro profesional?',
+  opts:[
+   {t:'Muy importante, me gustaría trabajar en eso.', p:{tec_ambiente:2}},
+   {t:'Importante, pero no como foco principal.', p:{}},
+   {t:'No es algo que me motive especialmente.', p:{}},
+   {t:'Me interesa más el desarrollo económico.', p:{empresarial:1}}]},
+ {cat:'Internacional', q:'¿Te imaginás trabajando con temas de otros países?',
+  opts:[
+   {t:'Sí, me encantaría un trabajo con proyección internacional.', p:{internacional:2}},
+   {t:'Tal vez, si surge la oportunidad.', p:{}},
+   {t:'Prefiero enfocarme en Argentina.', p:{}},
+   {t:'Me interesa más lo local y cercano.', p:{familia_civil:1}}]},
+ {cat:'Economía', q:'¿Qué tanto te interesan los temas económicos y financieros?',
+  opts:[
+   {t:'Mucho, disfruto entender cómo se mueve el dinero.', p:{empresarial:2}},
+   {t:'Algo, lo suficiente para un trabajo cotidiano.', p:{laboral:1}},
+   {t:'Poco, prefiero otros temas.', p:{}},
+   {t:'Nada, los números no son lo mío.', p:{familia_civil:1}}]},
+ {cat:'Justicia', q:'¿Qué representa para vos la palabra "justicia"?',
+  opts:[
+   {t:'Que se cumplan las normas y se sancione lo incorrecto.', p:{penal:2}},
+   {t:'Que las personas encuentren una solución justa a su problema.', p:{familia_civil:2}},
+   {t:'Que el Estado actúe correctamente.', p:{academia:1}},
+   {t:'Que se respeten los derechos humanos en cualquier lugar.', p:{internacional:2}}]},
+ {cat:'Trabajo en equipo', q:'¿Preferís trabajar sola o en equipo?',
+  opts:[
+   {t:'Prefiero trabajar sola, con mi propio ritmo.', p:{litigacion:1}},
+   {t:'Prefiero equipos grandes y estructurados.', p:{empresarial:1}},
+   {t:'Prefiero equipos chicos y flexibles.', p:{familia_civil:1}},
+   {t:'Me da igual, depende del proyecto.', p:{}}]},
+ {cat:'Ámbito de trabajo', q:'¿Te imaginás más cómoda en una oficina o yendo a tribunales?',
+  opts:[
+   {t:'En tribunales, me gusta la acción y el movimiento.', p:{litigacion:2}},
+   {t:'En una oficina, con tiempo para pensar y redactar.', p:{empresarial:1, academia:1}},
+   {t:'Combinando ambas cosas.', p:{laboral:1}},
+   {t:'En un lugar tranquilo, atendiendo personas.', p:{familia_civil:1}}]},
+ {cat:'Estabilidad vs. emprendimiento', q:'¿Qué te da más tranquilidad a futuro?',
+  opts:[
+   {t:'Un trabajo estable en relación de dependencia.', p:{laboral:1, academia:1}},
+   {t:'Armar mi propio estudio o proyecto.', p:{familia_civil:1, litigacion:1}},
+   {t:'Un puesto en el Estado, con estabilidad.', p:{penal:1}},
+   {t:'Un trabajo en una empresa grande, con posibilidad de crecer.', p:{empresarial:2}}]},
+ {cat:'Contacto con personas', q:'¿Cuánto contacto directo con personas te gustaría tener en tu trabajo?',
+  opts:[
+   {t:'Mucho, me gusta el trato directo todos los días.', p:{familia_civil:2}},
+   {t:'Moderado, algunas reuniones pero no todo el día.', p:{laboral:1}},
+   {t:'Poco, prefiero trabajar más con documentos y análisis.', p:{empresarial:1, academia:1}},
+   {t:'Me da igual.', p:{}}]},
+ {cat:'Visión a futuro', q:'Si pensás en vos en 10 años ejerciendo Abogacía, ¿qué imagen te representa más?',
+  opts:[
+   {t:'Litigando en tribunales, defendiendo causas.', p:{litigacion:2}},
+   {t:'Asesorando a una empresa importante.', p:{empresarial:2}},
+   {t:'Trabajando en algo con impacto social o de derechos humanos.', p:{internacional:1, familia_civil:1}},
+   {t:'Dando clases e investigando sobre Derecho.', p:{academia:2}},
+   {t:'Con mi propio estudio, ayudando a personas con temas cotidianos.', p:{familia_civil:2}}]}
+];
+
+/* ============ NAV ============ */
+function goTo(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  document.getElementById('navLinks').classList.remove('open');
+}
+document.querySelectorAll('.nav-links button').forEach(b=>{
+  b.addEventListener('click', ()=>goTo(b.dataset.target));
+});
+document.getElementById('hamburger').addEventListener('click', ()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+const sectionIds = ['inicio','test','ramas','salidas','mundo','universidades','plan','cursos','constructor','comparador','casos','sanluis','mapa'];
+const navBtns = {};
+document.querySelectorAll('.nav-links button').forEach(b=>navBtns[b.dataset.target]=b);
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      Object.values(navBtns).forEach(b=>b.classList.remove('active'));
+      if(navBtns[e.target.id]) navBtns[e.target.id].classList.add('active');
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+sectionIds.forEach(id=>{ const el=document.getElementById(id); if(el) observer.observe(el); });
+
+/* ============ QUIZ LOGIC ============ */
+let qIndex = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+
+function startQuiz(){
+  answers = new Array(QUESTIONS.length).fill(null);
+  qIndex = 0;
+  document.getElementById('quiz-intro').classList.add('hidden');
+  document.getElementById('quiz-results').classList.add('hidden');
+  document.getElementById('quiz-active').classList.remove('hidden');
+  renderQuestion();
+}
+function renderQuestion(){
+  const q = QUESTIONS[qIndex];
+  document.getElementById('qCounter').textContent = `Pregunta ${qIndex+1} / ${QUESTIONS.length}`;
+  document.getElementById('qCatLabel').textContent = q.cat;
+  document.getElementById('qTitle').textContent = q.q;
+  document.getElementById('quizProgress').style.width = ((qIndex)/QUESTIONS.length*100)+'%';
+  const optsBox = document.getElementById('qOptions');
+  optsBox.innerHTML = '';
+  q.opts.forEach((o,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'opt' + (answers[qIndex]===i ? ' selected':'');
+    btn.textContent = o.t;
+    btn.onclick = ()=>{ answers[qIndex]=i; renderQuestion(); document.getElementById('qNext').disabled=false; };
+    optsBox.appendChild(btn);
+  });
+  document.getElementById('qNext').disabled = answers[qIndex]===null;
+  document.getElementById('qNext').textContent = (qIndex===QUESTIONS.length-1) ? 'Ver resultados →' : 'Siguiente →';
+  document.getElementById('qPrev').style.visibility = qIndex===0 ? 'hidden' : 'visible';
+}
+function prevQ(){ if(qIndex>0){ qIndex--; renderQuestion(); } }
+function nextQ(){
+  if(answers[qIndex]===null) return;
+  if(qIndex < QUESTIONS.length-1){ qIndex++; renderQuestion(); }
+  else { finishQuiz(); }
+}
+function finishQuiz(){
+  const scores = {};
+  MACRO.forEach(m=>scores[m.id]=0);
+  QUESTIONS.forEach((q,i)=>{
+    const chosen = q.opts[answers[i]];
+    if(chosen && chosen.p){
+      Object.keys(chosen.p).forEach(k=>{ scores[k]=(scores[k]||0)+chosen.p[k]; });
+    }
+  });
+  const max = Math.max(...Object.values(scores), 1);
+  const normalized = MACRO.map(m=>({...m, score: Math.round((scores[m.id]/max)*100)}));
+  normalized.sort((a,b)=>b.score-a.score);
+  try{ localStorage.setItem('derecho_profile', JSON.stringify(normalized)); }catch(e){}
+  renderResults(normalized);
+  document.getElementById('quiz-active').classList.add('hidden');
+  document.getElementById('quiz-results').classList.remove('hidden');
+  renderMap();
+}
+function renderResults(normalized){
+  const bars = document.getElementById('resultBars');
+  bars.innerHTML = normalized.map(m=>`
+    <div class="bar-row">
+      <div class="top"><span>${m.icon} ${m.name}</span><span>${m.score}%</span></div>
+      <div class="track"><div class="fill" style="width:${m.score}%"></div></div>
+    </div>`).join('');
+  const top5 = normalized.slice(0,5);
+  const top5box = document.getElementById('top5');
+  top5box.innerHTML = top5.map(m=>{
+    const relatedBranches = BRANCHES.filter(b=>b.macro.includes(m.id)).slice(0,5).map(b=>b.name).join(', ');
+    return `<div class="profile-detail">
+      <h4>${m.icon} ${m.name} — ${m.score}%</h4>
+      <p>${m.desc}</p>
+      <p class="small"><b style="color:var(--beige)">Podrías explorar:</b> ${relatedBranches}</p>
+    </div>`;
+  }).join('');
+}
+
+/* ============ RAMAS EXPLORER ============ */
+const FILTER_TAGS = [
+  {id:'personas', label:'Personas'}, {id:'empresas', label:'Empresas'}, {id:'estado', label:'Estado'},
+  {id:'tecnologia', label:'Tecnología'}, {id:'ambiente', label:'Ambiente'}, {id:'dinero', label:'Dinero/economía'},
+  {id:'politica', label:'Política'}, {id:'justicia', label:'Justicia'}, {id:'investigacion', label:'Investigación'},
+  {id:'internacional', label:'Internacional'}, {id:'juicios', label:'Juicios'}, {id:'negociacion', label:'Negociación'}
+];
+let activeFilters = new Set();
+let searchTerm = '';
+
+function renderFilterBar(){
+  const box = document.getElementById('branchFilters');
+  box.innerHTML = FILTER_TAGS.map(f=>`<button class="chip" data-f="${f.id}">${f.label}</button>`).join('');
+  box.querySelectorAll('.chip').forEach(c=>{
+    c.onclick = ()=>{
+      const f=c.dataset.f;
+      if(activeFilters.has(f)){ activeFilters.delete(f); c.classList.remove('active'); }
+      else{ activeFilters.add(f); c.classList.add('active'); }
+      renderBranches();
+    };
+  });
+}
+function dotsHtml(level){
+  let h='<span class="dots">';
+  for(let i=1;i<=5;i++){ h+= `<span class="${i<=level?'on':''}"></span>`; }
+  return h+'</span>';
+}
+function renderBranches(){
+  const grid = document.getElementById('branchGrid');
+  let list = BRANCHES.filter(b=>{
+    const matchesSearch = searchTerm==='' || b.name.toLowerCase().includes(searchTerm) || b.desc.toLowerCase().includes(searchTerm);
+    const matchesFilters = [...activeFilters].every(f=>b.tags.includes(f));
+    return matchesSearch && matchesFilters;
+  });
+  if([...activeFilters].length>0){
+    list = list.slice().sort((a,b)=>{
+      const scoreA = [...activeFilters].filter(f=>a.tags.includes(f)).length;
+      const scoreB = [...activeFilters].filter(f=>b.tags.includes(f)).length;
+      return scoreB-scoreA;
+    });
+  }
+  grid.innerHTML = list.map(b=>`
+    <div class="card branch-card" onclick="openBranch('${b.id}')">
+      <div class="icon">${b.icon}</div>
+      <h3>${b.name}</h3>
+      <p>${b.desc}</p>
+      <div class="meter">Litigación ${dotsHtml(b.litigacion)}</div>
+      <div class="meter">Contacto con personas ${dotsHtml(b.personas)}</div>
+    </div>`).join('') || '<p class="small">No hay ramas que coincidan con los filtros elegidos.</p>';
+}
+document.getElementById('branchSearch').addEventListener('input', (e)=>{
+  searchTerm = e.target.value.toLowerCase();
+  renderBranches();
+});
+
+function openBranch(id){
+  const b = BRANCHES.find(x=>x.id===id);
+  const box = document.getElementById('modalBox');
+  box.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="icon-lg">${b.icon}</div>
+    <h3>${b.name}</h3>
+    <p>${b.desc}</p>
+    <div class="modal-grid">
+      <div><b>Qué problemas resuelve</b>${b.problems}</div>
+      <div><b>Ejemplos reales</b>${b.examples}</div>
+      <div><b>Materias relacionadas</b>${b.materias}</div>
+      <div><b>Habilidades importantes</b>${b.skills}</div>
+      <div><b>Dónde puede trabajar</b>${b.lugares}</div>
+      <div><b>Perfiles afines</b>${b.macro.map(m=>MACRO.find(x=>x.id===m)?.name).join(', ')}</div>
+    </div>
+    <div class="pill-row mt-24">
+      <span class="tag">Independiente ${dotsHtml(b.independiente)}</span>
+      <span class="tag">Empresas ${dotsHtml(b.empresas)}</span>
+      <span class="tag">Internacional ${dotsHtml(b.internacional)}</span>
+    </div>`;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); }
+document.getElementById('modalOverlay').addEventListener('click', (e)=>{
+  if(e.target.id==='modalOverlay') closeModal();
+});
+
+/* ============ SALIDAS ============ */
+function renderJobs(){
+  const box = document.getElementById('jobsContainer');
+  box.innerHTML = JOBS.map(cat=>`
+    <div class="job-cat">
+      <h3>${cat.catLabel}</h3>
+      <div class="grid grid-2">
+        ${cat.items.map(j=>`
+          <div class="card">
+            <h4 style="font-size:1rem; margin-bottom:6px;">${j.name}</h4>
+            <p class="small" style="margin-bottom:8px;"><b style="color:var(--beige)">Rama:</b> ${j.branch}</p>
+            <p>${j.desc}</p>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+/* ============ UNIVERSIDADES ============ */
+let uniActiveFilters = new Set();
+function renderUniFilters(){
+  const filters = [{id:'san-luis', label:'📍 San Luis'},{id:'publica', label:'💰 Pública'},{id:'privada', label:'🏫 Privada'}];
+  const box = document.getElementById('uniFilters');
+  box.innerHTML = filters.map(f=>`<button class="chip" data-f="${f.id}">${f.label}</button>`).join('');
+  box.querySelectorAll('.chip').forEach(c=>{
+    c.onclick=()=>{
+      const f=c.dataset.f;
+      if(uniActiveFilters.has(f)){uniActiveFilters.delete(f); c.classList.remove('active');}
+      else{uniActiveFilters.add(f); c.classList.add('active');}
+      renderUnis();
+    };
+  });
+}
+function renderUnis(){
+  const list = UNIS.filter(u=> [...uniActiveFilters].every(f=>u.filtros.includes(f)) );
+  document.getElementById('uniGrid').innerHTML = list.map(u=>`
+    <div class="card uni-card">
+      <h3>${u.name}</h3>
+      <div class="uni-meta">
+        <div><b>Ubicación</b>${u.ubicacion}</div>
+        <div><b>Tipo</b>${u.tipo}</div>
+        <div><b>Modalidad</b>${u.modalidad}</div>
+        <div><b>Duración</b>${u.duracion}</div>
+        <div><b>Título</b>${u.titulo}</div>
+        <div><b>Facultad</b>${u.facultad}</div>
+      </div>
+      <div class="pill-row">
+        <a class="btn btn-ghost" href="${u.link}" target="_blank" rel="noopener">Sitio oficial</a>
+        <a class="btn btn-ghost" href="${u.linkPlan}" target="_blank" rel="noopener">Plan de estudios</a>
+      </div>
+      <p class="verify">${u.verificado}</p>
+    </div>`).join('') || '<p class="small">No hay universidades con esos filtros.</p>';
+}
+
+/* ============ PLAN ============ */
+function renderPlan(){
+  document.getElementById('planGrid').innerHTML = PLAN.map(p=>`
+    <div class="card">
+      <h3>${p.stage}</h3>
+      <ul class="sl-list">${p.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>`).join('');
+}
+
+/* ============ CURSOS ============ */
+function renderCourses(){
+  document.getElementById('coursesGrid').innerHTML = COURSES.map(c=>`
+    <div class="card">
+      <h3 style="font-size:1.02rem;">${c.area}</h3>
+      <p class="small" style="margin-bottom:6px;"><b style="color:var(--beige)">Plataforma:</b> ${c.platform}</p>
+      <p>${c.why}</p>
+      <a class="btn btn-ghost mt-24" href="${c.link}" target="_blank" rel="noopener">Buscar cursos vigentes →</a>
+    </div>`).join('');
+}
+
+/* ============ CONSTRUCTOR ============ */
+function fillBuilderSelects(){
+  const sel = document.getElementById('bRama');
+  sel.innerHTML = BRANCHES.map(b=>`<option value="${b.id}">${b.name}</option>`).join('');
+}
+function buildPath(){
+  const branchId = document.getElementById('bRama').value;
+  const lugar = document.getElementById('bLugar').value;
+  const modo = document.getElementById('bModo').value;
+  const inter = document.getElementById('bInter').value;
+  const b = BRANCHES.find(x=>x.id===branchId);
+
+  const lugarLabel = {tribunales:'Tribunales / Poder Judicial', empresa:'Empresa', estudio:'Estudio jurídico', estado:'Organismo del Estado', ong:'ONG / organismo internacional'}[lugar];
+  const modoLabel = {independiente:'Ejercicio independiente', relacion:'Relación de dependencia', mixto:'Combinar ambas modalidades'}[modo];
+
+  const steps = ['Abogacía', b.name];
+  if(lugar==='tribunales'){ steps.push('Práctica profesional / pasantías judiciales', 'Concursos o ingreso al Poder Judicial'); }
+  if(lugar==='empresa'){ steps.push('Prácticas en un estudio o empresa', 'Especialización afín al negocio'); }
+  if(lugar==='estudio'){ steps.push('Matrícula profesional', 'Construcción de cartera de clientes'); }
+  if(lugar==='estado'){ steps.push('Concurso público / pasantía estatal'); }
+  if(lugar==='ong'){ steps.push('Voluntariado o pasantía en una ONG', 'Formación en Derechos Humanos o Internacional'); }
+  steps.push(modoLabel);
+  if(inter==='si'){ steps.push('Inglés (u otro idioma)', 'Experiencia o formación con proyección internacional'); }
+  steps.push('Posgrado o especialización (opcional)');
+
+  document.getElementById('pathOutput').innerHTML = steps.map((s,i)=>
+    `<div class="path-step">${s}</div>` + (i<steps.length-1 ? '<div class="path-arrow">↓</div>' : '')
+  ).join('');
+}
+
+/* ============ COMPARADOR ============ */
+function fillCompareSelects(){
+  ['cmp1','cmp2','cmp3'].forEach((id,i)=>{
+    const sel = document.getElementById(id);
+    sel.innerHTML = '<option value="">— elegir rama —</option>' + BRANCHES.map(b=>`<option value="${b.id}">${b.name}</option>`).join('');
+  });
+  document.getElementById('cmp1').value = 'penal';
+  document.getElementById('cmp2').value = 'empresarial';
+  document.getElementById('cmp3').value = 'internacional';
+  renderCompare();
+}
+function renderCompare(){
+  const ids = ['cmp1','cmp2','cmp3'].map(id=>document.getElementById(id).value).filter(Boolean);
+  const selected = ids.map(id=>BRANCHES.find(b=>b.id===id)).filter(Boolean);
+  const metrics = [
+    {key:'personas', label:'Contacto con personas'},
+    {key:'lectura', label:'Lectura / análisis'},
+    {key:'litigacion', label:'Litigación'},
+    {key:'empresas', label:'Vínculo con empresas'},
+    {key:'independiente', label:'Ejercicio independiente'},
+    {key:'internacional', label:'Posibilidad internacional'},
+  ];
+  const table = document.getElementById('compareTable');
+  if(selected.length===0){ table.innerHTML=''; return; }
+  let head = '<tr><th>Atributo</th>' + selected.map(b=>`<th>${b.icon} ${b.name}</th>`).join('') + '</tr>';
+  let rows = metrics.map(m=>{
+    return `<tr><td>${m.label}</td>` + selected.map(b=>{
+      const v = b[m.key];
+      return `<td class="metric-cell"><span class="mini-track"><span class="mini-fill" style="width:${v*20}%"></span></span>${v}/5</td>`;
+    }).join('') + '</tr>';
+  }).join('');
+  let exRow = '<tr><td>Ejemplo de trabajo</td>' + selected.map(b=>`<td>${b.examples}</td>`).join('') + '</tr>';
+  table.innerHTML = head + rows + exRow;
+}
+
+/* ============ CASOS ============ */
+function renderCases(){
+  document.getElementById('casesGrid').innerHTML = CASES.map((c,i)=>`
+    <div class="card case-card">
+      <p style="color:var(--white); font-weight:600;">${c.prompt}</p>
+      <div class="case-opts" id="caseOpts${i}">
+        ${c.options.map((o,j)=>`<button class="opt" onclick="answerCase(${i},${j})">${o}</button>`).join('')}
+      </div>
+      <div class="case-feedback" id="caseFeedback${i}"></div>
+    </div>`).join('');
+}
+function answerCase(i,j){
+  const c = CASES[i];
+  const fb = document.getElementById('caseFeedback'+i);
+  const correct = j===c.correct;
+  fb.classList.add('show', correct?'correct':'incorrect');
+  fb.textContent = (correct? '✔ Correcto. ' : '✘ No exactamente. ') + c.explain;
+  document.querySelectorAll(`#caseOpts${i} .opt`).forEach((btn,k)=>{
+    btn.disabled = true;
+    if(k===c.correct) btn.classList.add('selected');
+  });
+}
+
+/* ============ MAPA FINAL ============ */
+function renderMap(){
+  const box = document.getElementById('mapContent');
+  let saved;
+  try{ saved = JSON.parse(localStorage.getItem('derecho_profile')); }catch(e){ saved=null; }
+  if(!saved){
+    box.innerHTML = `<div class="card center"><p>Todavía no hiciste el test vocacional.</p><button class="btn btn-primary mt-24" onclick="goTo('test')">Hacer el test</button></div>`;
+    return;
+  }
+  const top3 = saved.slice(0,3);
+  const relatedBranches = [...new Set(top3.flatMap(m=>BRANCHES.filter(b=>b.macro.includes(m.id)).map(b=>b.name)))].slice(0,6);
+  const relatedJobs = [...new Set(JOBS.flatMap(cat=>cat.items).filter(j=>relatedBranches.some(rb=>j.branch.includes(rb.replace('Derecho ','')))).map(j=>j.name))].slice(0,5);
+  box.innerHTML = `
+    <p class="small">Tu perfil parece orientarse principalmente hacia <b style="color:var(--white)">${top3[0].name}</b>${top3[1]?` y ${top3[1].name}`:''}.</p>
+    <div class="grid grid-2 mt-24">
+      <div class="card map-card">
+        <h3>❤️ Ramas recomendadas</h3>
+        <ul class="sl-list">${relatedBranches.map(b=>`<li>${b}</li>`).join('') || '<li>Explorá la sección de ramas para ver opciones.</li>'}</ul>
+      </div>
+      <div class="card map-card">
+        <h3>💼 Trabajos para explorar</h3>
+        <ul class="sl-list">${relatedJobs.map(j=>`<li>${j}</li>`).join('') || '<li>Mirá la sección de salidas laborales.</li>'}</ul>
+      </div>
+      <div class="card map-card">
+        <h3>🏫 Universidades a considerar</h3>
+        <ul class="sl-list"><li>UNSL (pública, San Luis)</li><li>UCCuyo Sede San Luis (privada)</li></ul>
+      </div>
+      <div class="card map-card">
+        <h3>📚 Habilidades para desarrollar</h3>
+        <ul class="sl-list"><li>Inglés</li><li>Argumentación y escritura</li><li>Negociación</li></ul>
+      </div>
+    </div>
+    <div class="card mt-24">
+      <h3>🗺️ Próximos pasos</h3>
+      <ol class="steps-list">
+        <li>Comparar UNSL y UCCuyo en la sección de universidades.</li>
+        <li>Revisar los planes de estudio oficiales.</li>
+        <li>Mejorar tu inglés desde ahora, con lo que tengas a mano.</li>
+        <li>Hacer un curso introductorio en algo que te haya interesado del test.</li>
+        <li>Hablar con estudiantes o abogadas/os que ya estén en el camino.</li>
+        <li>Visitar una universidad antes de inscribirte.</li>
+      </ol>
+    </div>`;
+}
+
+/* ============ INIT ============ */
+renderFilterBar();
+renderBranches();
+renderJobs();
+renderUniFilters();
+renderUnis();
+renderPlan();
+renderCourses();
+fillBuilderSelects();
+fillCompareSelects();
+renderCases();
+renderMap();
+</script>
+</body>
+</html>
